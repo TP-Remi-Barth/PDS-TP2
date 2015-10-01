@@ -1,9 +1,5 @@
 ### Modèle pour vos Makefile
 
-# Name of the archive without extension
-RENDU_NAME = tp2-bocquet-delemotte
-RENDU_FILE = rendu/${RENDU_NAME}.tar.gz
-
 ## Compilateur C et éditeur de liens
 CC      = gcc
 
@@ -20,12 +16,10 @@ LDFLAGS  = -g
 # RM command
 RM = rm -vf
 
-
 ## Première cible
 #  « make » sans argument construit sa première cible
 #  Indiquez en dépendance le ou les binaires à construire
 all: mdu
-
 
 ## Compilation séparée
 #  Le .o doit être recompilé dès que le .c ou le .h (s'il existe) change
@@ -46,14 +40,7 @@ realclean: clean
 
 # test: mdu test.sh
 # 	./test.sh
-
-rendu: realclean ${RENDU_FILE}
-
-${RENDU_FILE}: Makefile README mdu.c
-	tar -czf ${RENDU_FILE} . --exclude='*.git*' --exclude='rendu' --one-top-level
-
-
 ## Liste des pseudo-cibles
 #  Ces cibles ne correspondent pas à des fichiers que l'on veut créer,
 #  juste à des séquences que l'on veut pouvoir déclencher
-.PHONY: all clean realclean rendu
+.PHONY: all clean realclean
