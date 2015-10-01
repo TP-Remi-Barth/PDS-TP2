@@ -1,0 +1,31 @@
+PDS TP2
+Barthélémy Delemotte
+Rémi Bocquet
+Groupe 3
+
+----------------------------------------
+Compilation: make
+
+-----------------------------------------
+Usage:
+	./mdu [OPTION]... [FILE]...
+
+OPTIONS:
+	-L	suivre les liens symboliques
+	-b	afficher les tailles apparentes
+	-c	afficher le total
+
+FILES:
+	Si aucun fichier n'est précisé, le répértoire courrant est utilisé.
+	Plusieurs fichiers peuvent être spécifiés dans la commande.
+--------------------------------------
+Exemple:
+	./mdu -Lc /etc/udev .. -b /usr/lib /etc/passwd
+
+---------------------------------------
+Exercice 15 (Comptage multiple ?):
+
+Il faudrait construire un ensemble de pairs (device_id, file_inode).
+Chaque pair permet donc d'identifier un fichier.
+À chaque fichier analysé,on ajoute une entrée à l'ensemble.
+On analyse un fichier uniquement si la pair associé n'est pas déjà dans l'ensemble.
